@@ -8,7 +8,7 @@ El objetivo es recopilar y subir todos los ejercicios realizados en la asignatur
 ## Estructura del repositorio
 - `Python/` → Carpeta principal con los ejercicios.
 - Subcarpetas organizadas por temas (funciones, módulos, expresiones regulares, etc.).
-- Archivos individuales como `recursividad.py`, `examen.py`, etc.
+- Archivos individuales como `recursividad.py`, `modulo.py`, etc.
 
 ## Objetivos
 - Digitalizar y centralizar los ejercicios de Python.
