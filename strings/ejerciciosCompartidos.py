@@ -39,7 +39,7 @@ def convertir_minusculas(cadena):
    # 3. Recorrer la cadena y sustituir letras en posiciones pares
    resultado = ""
    for i, caracter in enumerate(cadena_sin_espacios):
-       if i % 2 == 0:   # índice par= letra impar mantener la letra
+       if i % 2 == 0:   # índice par = letra impar mantener la letra
            resultado += caracter
        else:            # índice impar = letra par sustituir por *
            resultado += "*"
@@ -49,14 +49,14 @@ texto = "Este Ejercicio Es Muy Complicado"
 print(convertir_minusculas(texto))
     
 ''' EJERCICIO 3 (Alejandro Malpelo): Clasificador de palabras
- Escribe un programa en Python que pida al usuario un texto y clasifique sus palabras según estas 
+Escribe un programa en Python que pida al usuario un texto y clasifique sus palabras según estas 
 reglas:- Palabras que empiezan por vocal.- Palabras que terminan en consonante.
 - Palabras que contienen  algún número.  
 - El programa debe:- Separar el texto en palabras.
- - Detectar cuáles cumplen cada condición.
- - Guardarlas en un diccionario con tres listas.
- - Mostrar un informe final indicando las palabras encontradas en cada categoría
- y cuántas hay en cada una.'''
+- Detectar cuáles cumplen cada condición.
+- Guardarlas en un diccionario con tres listas.
+- Mostrar un informe final indicando las palabras encontradas en cada categoría
+y cuántas hay en cada una.'''
 def clasificar_palabras(texto):
     # Separar el texto en palabras
     palabras = texto.split() 
@@ -81,11 +81,9 @@ def clasificar_palabras(texto):
             clasificacion["contienen_numero"].append(palabra)
     
     return clasificacion
-
 # Programa principal
 texto_usuario = input("Introduce un texto: ")
 resultado = clasificar_palabras(texto_usuario)
-
 # Informe final
 print("\n--- Informe de clasificación ---")
 for categoria, lista in resultado.items():
@@ -103,30 +101,108 @@ def analizar_cadena(cadena):
 # Ejemplo de uso
 texto = "Programación En Python"
 longitud, minusculas, ultimas_5 = analizar_cadena(texto)
-
 print("Longitud:", longitud)
 print("En minúsculas:", minusculas)
 print("Últimas 5 letras:", ultimas_5)
+
 '''EJERCICIO 6 (Alberto Llera):
- Recoger un email por consola introducido por el usuario. En una función se debe comprobar que 
+Recoger un email por consola introducido por el usuario. En una función se debe comprobar que 
 el correo introducido por el usuario contenga “@” y acabe en “.com” o “.es”.  Además, el usuario 
 solo tendrá tres oportunidades para validar el correo.'''
-
+def validar_email():
+    intentos = 3  # Número máximo de intentos
+    while intentos > 0:
+        correo = input("Introduce tu correo electrónico: ")
+        # Comprobamos que contenga '@' y termine en '.com' o '.es'
+        if "@" in correo and (correo.endswith(".com") or correo.endswith(".es")):
+            print("Correo válido:", correo)
+            return True
+        else:
+            intentos -= 1
+            print(f"Correo inválido. Te quedan {intentos} intento(s).")
+    
+    print("Has agotado los intentos. El programa termina.")
+    return False
+# Ejecución de la función
+validar_email()
 '''EJERCICIO 7 (Manuel Moreno)
  Pedir por teclado una cadena de texto y “analizarla” con distintas funciones.
  Deberá contar la longitud total, contar las letras (mirar isaplha()), contar los números, contar los 
-caracteres especiales y contar los espacios'''
+ caracteres especiales y contar los espacios'''
+def analizar_cadenas(cadena):
+    longitud = len(cadena)
+    letras = 0
+    numeros = 0
+    espacios = 0
+    especiales = 0
 
-''' EJERCICIO 8 (Rafael Cosquillo)
- Pida al usuario una frase. 
+    for caracter in cadena:
+        if caracter.isalpha():       # Comprueba si es letra
+            letras += 1
+        elif caracter.isdigit():     # Comprueba si es número
+            numeros += 1
+        elif caracter.isspace():     # Comprueba si es espacio
+            espacios += 1
+        else:                        # Todo lo demás son caracteres especiales
+            especiales += 1
+
+    print("Longitud total:", longitud)
+    print("Total letras:", letras)
+    print("Total números:", numeros)
+    print("Total espacios:", espacios)
+    print("Total caracteres especiales:", especiales)
+
+# Ejemplo de uso
+texto = input("Introduce una cadena de texto: ")
+analizar_cadenas(texto)
+
+'''EJERCICIO 8 (Rafael Cosquillo)
+Pida al usuario una frase. 
 Elimine los espacios al inicio y al final (strip()).
- Muestre: La frase en minúsculas (lower()). 
+Muestre: La frase en minúsculas (lower()). 
 La frase en mayúsculas (upper()). 
 La frase con la primera letra en mayúscula (capitalize()). 
 Reemplace todas las comas por puntos (replace()). 
 Cuente cuántas veces aparece una palabra que el usuario ingresa (count()). 
 Verifique si la frase empieza con una vocal (startswith()). 
 Muestre cuántas palabras tiene la frase (split()).'''
+def analizar_frase():
+    # Pedir frase al usuario
+    frase = input("Introduce una frase: ")
+
+    # Eliminar espacios al inicio y al final
+    frase = frase.strip()
+
+    # Mostrar la frase en minúsculas
+    print("En minúsculas:", frase.lower())
+
+    # Mostrar la frase en mayúsculas
+    print("En mayúsculas:", frase.upper())
+
+    # Mostrar la frase con la primera letra en mayúscula
+    print("Capitalizada:", frase.capitalize())
+
+    # Reemplazar todas las comas por puntos
+    print("Reemplazo de comas:", frase.replace(",", "."))
+
+    # Contar cuántas veces aparece una palabra que el usuario ingresa
+    palabra = input("Introduce una palabra para contar en la frase: ")
+    print(f"La palabra '{palabra}' aparece {frase.count(palabra)} veces.")
+
+    # Verificar si la frase empieza con una vocal
+    vocales = ("a", "e", "i", "o", "u", "A", "E", "I", "O", "U")
+    if frase.startswith(vocales):
+        print("La frase empieza con una vocal.")
+    else:
+        print("La frase no empieza con una vocal.")
+
+    # Mostrar cuántas palabras tiene la frase
+    palabras = frase.split()
+    print("Número de palabras en la frase:", len(palabras))
+
+
+# Ejecución de la función
+analizar_frase()
 
 '''EJERCICIO 9 (Franco Benavides)
 Pide al usuario una oración completa y el programa debe decir cuántas
@@ -136,3 +212,29 @@ minúsculas y devuelve esa frase convertida.
 Si el número es impar, devuelve la frase con las palabras con el orden
 invertido.
 frase = "Estoy estudiando Python y no quiero suspender'''
+def procesar_oracion():
+    # Pedir la oración al usuario
+    frase = input("Introduce una oración completa: ")
+
+    # Contar cuántas palabras tiene
+    palabras = frase.split()
+    num_palabras = len(palabras)
+    print("Número de palabras:", num_palabras)
+
+    if num_palabras % 2 == 0:
+        # Si el número de palabras es PAR → alternar mayúsculas/minúsculas por posición de letra
+        nueva_frase = ""
+        for i, letra in enumerate(frase):
+            if i % 2 == 0:   # posición par → mayúscula
+                nueva_frase += letra.lower()
+            else:            # posición impar → minúscula
+                nueva_frase += letra.upper()
+        print("Frase convertida (par):", nueva_frase)
+    else:
+        # Si el número de palabras es IMPAR → invertir el orden de las palabras
+        frase_invertida = " ".join(reversed(palabras))
+        print("Frase convertida (impar):", frase_invertida)
+
+
+# Ejemplo de ejecución
+procesar_oracion()

@@ -18,4 +18,4 @@ El objetivo es recopilar y subir todos los ejercicios realizados en la asignatur
 ## Cómo usar este repositorio
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/usuario/repositorio.git
+   git clone https://github.com/monicrack/python.git
