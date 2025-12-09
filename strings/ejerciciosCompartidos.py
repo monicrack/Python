@@ -246,5 +246,32 @@ La función debe devolver True si el DNI es válido y False si no lo es.
 Después, probar la función con varios DNIs.'''
 def validar_dni(dni):
     letras = "TRWAGMYFPDXBNJZSQVHLCKE"
+    
+    # Comprobar longitud
+    if len(dni) != 9:
+        return False
+    
+    # Separar número y letra
+    numero = dni[:8]
+    letra = dni[8].upper()  # Convertimos a mayúscula por seguridad
+    
+    # Validar que los primeros 8 caracteres son dígitos
+    if not numero.isdigit():
+        return False
+    
+    # Calcular la letra oficial
+    indice = int(numero) % 23
+    letra_correcta = letras[indice]
+    
+    # Comparar con la letra proporcionada
+    return letra == letra_correcta
+# Ejemplos válidos
+print(validar_dni("12345678Z"))  # True (Z es la letra correcta)
+print(validar_dni("00000000T"))  # True (T es la letra correcta)
+
+# Ejemplos inválidos
+print(validar_dni("12345678A"))  # False (A no corresponde)
+print(validar_dni("ABCDEFGHJ"))  # False (no son números)
+print(validar_dni("1234567Z"))   # False (longitud incorrecta)
 
  
