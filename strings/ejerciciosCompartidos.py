@@ -238,3 +238,13 @@ def procesar_oracion():
 
 # Ejemplo de ejecución
 procesar_oracion()
+'''Ejercicio 11 (Pablo Sevillano)
+Crear una función que reciba un DNI por parámetro y valide si es correcto.
+El DNI debe tener 8 números y 1 letra, y la letra debe coincidir con la letra oficial obtenida
+con la fórmula del DNI (número % 23 usando la cadena "TRWAGMYFPDXBNJZSQVHLCKE").
+La función debe devolver True si el DNI es válido y False si no lo es.
+Después, probar la función con varios DNIs.'''
+def validar_dni(dni):
+    letras = "TRWAGMYFPDXBNJZSQVHLCKE"
+
+ 
