@@ -1,3 +1,11 @@
+s="Monty Python"
+print(s[8:len(s)])
+
+word='hello'
+word1='world'
+if word < word1:
+    print(f'{word}' )
+
 ''' Ejercicio 1 (Sebastian Becerra) 
 Modifica la cadena “      este ejercicio es muy complicado            ” para que el ejercicio 
 sea facilísimo  y cada una de las palabras comience en mayúsculas y sin espacios y luego 
@@ -27,6 +35,7 @@ texto = "   este ejercicio es muy complicado    "
 resultado, indice = transformar_cadena(texto)
 print("Cadena invertida:", resultado)
 print("Índice de 'complicado':", indice)
+#PALINDROMO
 
 ''' Ejercicio 2  (Ana López) 
 Vamos a definir una cadena y la vamos a pasar a minúsculas, eliminar los espacios

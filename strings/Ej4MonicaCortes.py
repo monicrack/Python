@@ -9,7 +9,14 @@ carácteres son mayúsculas'''
 
 def es_mayusculas(cadena):
     cadena=cadena.isupper()
-    return cadena
+    cadena_comprobada=cadena
+    return cadena_comprobada
 
 print(es_mayusculas("Monica"))
 print(es_mayusculas("ALBERTO"))
+
+
+def es_mayusculas1(cadena):
+    return "MAYÚSCULAS" if cadena.isupper() else "minúsculas"
+print(es_mayusculas1("Monica"))
+print(es_mayusculas1("ALBERTO"))
